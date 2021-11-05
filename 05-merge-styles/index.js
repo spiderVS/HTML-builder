@@ -30,7 +30,7 @@ const mergeCopyCss = async () => {
           data += chunk;
         }).on("end", () => {
           data += '\n';
-          fsPromises.appendFile(path.join(pathDirDest, BUNDLE_NAME), data, (err) => {
+          fs.appendFile(path.join(pathDirDest, BUNDLE_NAME), data, (err) => {
             if (err) throw err;
           });
         });
