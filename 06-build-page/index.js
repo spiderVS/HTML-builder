@@ -52,7 +52,7 @@ const buildBundle = async () => {
     console.log(`\n> Info: <${DEST_FOLDER_NAME}> folder was created`);
 
     let htmlFile = await readFile(pathEntryHtml);
-    compRegex = /\{\{.+\}\}/g;
+    compRegex = /\{\{[^\{\}]+\}\}/g;
     let compInHtmlArr = [...htmlFile.match(compRegex)]; // [{{header }}, {{ footer}}]
     let compInHtmlArrNorm = compInHtmlArr.map(el => el.slice(2,-2).trim()); // [{{header }}, {{ footer}}] ==> ['header', 'footer']
 
